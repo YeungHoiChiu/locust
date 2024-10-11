@@ -43,7 +43,7 @@ class EventHook:
                 handler(**kwargs)
             except (StopUser, RescheduleTask, RescheduleTaskImmediately, InterruptTaskSet):
                 # These exceptions could be thrown by, for example, a request handler,
-                # in which case they are entirely appropriate and should not be caught
+                # in which case they are entirely appropriate and should not be caught.
                 raise
             except Exception:
                 logging.error("Uncaught exception in event handler: \n%s", traceback.format_exc())
